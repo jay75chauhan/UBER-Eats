@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import tw from "tailwind-react-native-classnames";
 
 export default function HeaderTabs(props) {
 	const [activeTab, setActiveTab] = useState("Delivery");
 	return (
-		<View style={{ flexDirection: "row", alignSelf: "center" }}>
+		<View style={tw`flex-row justify-center p-2 `}>
 			<HeaderButton
 				text="Delivery"
 				btnColor="black"
@@ -25,19 +26,22 @@ export default function HeaderTabs(props) {
 
 const HeaderButton = (props) => (
 	<TouchableOpacity
-		style={{
-			backgroundColor: props.activeTab === props.text ? "black" : "white",
-			paddingVertical: 6,
-			paddingHorizontal: 16,
-			borderRadius: 30,
-		}}
+		style={[
+			tw`m-1 shadow-md `,
+			{
+				backgroundColor: props.activeTab === props.text ? "black" : "white",
+				paddingVertical: 10,
+				paddingHorizontal: 20,
+				borderRadius: 30,
+			},
+		]}
 		onPress={() => props.setActiveTab(props.text)}
 	>
 		<Text
 			style={{
 				color: props.activeTab === props.text ? "white" : "black",
-				fontSize: 15,
-				fontWeight: "900",
+				fontSize: 16,
+				fontWeight: "bold",
 			}}
 		>
 			{props.text}
