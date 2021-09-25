@@ -1,14 +1,28 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { GOOGLE_MAP_KEY } from "@env";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import tw from "tailwind-react-native-classnames";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
-const SearchBar = () => {
+const SearchBar = ({ cityHandlear }) => {
   return (
     <View style={tw`m-3 flex-row  `}>
       <GooglePlacesAutocomplete
+        onFail={(error) => console.error(error)}
         placeholder="Search"
+        debounce={400}
+        minLength={2}
+        fetchDetails={true}
+        enablePoweredByContainer={false}
+        query={{
+          key: GOOGLE_MAP_KEY,
+          language: "en",
+        }}
+        onPress={(data, details = null) => {
+          const city = data.description.split(",")[0];
+          cityHandlear(city);
+        }}
         styles={{
           textInput: {
             backgroundColor: "#eee",
@@ -22,6 +36,18 @@ const SearchBar = () => {
             flexDirection: "row",
             alignItems: "center",
             marginRight: 10,
+            marginBottom: 8,
+          },
+          row: {
+            backgroundColor: "#EEEEEE",
+            padding: 10,
+            margin: 5,
+            borderRadius: 15,
+
+            flexDirection: "row",
+          },
+          separator: {
+            backgroundColor: "#FFFF",
           },
         }}
         renderLeftButton={() => (
@@ -37,10 +63,6 @@ const SearchBar = () => {
             <Text>Search</Text>
           </View>
         )}
-        // query={{
-        // 	key: "YOUR API KEY",
-        // 	language: "en",
-        // }}
       />
     </View>
   );
