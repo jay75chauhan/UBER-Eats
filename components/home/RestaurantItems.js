@@ -33,16 +33,31 @@ export const localRestaurants = [
   },
 ];
 
-const RestaurantItems = ({ restaurantData }) => {
+const RestaurantItems = ({ navigation, restaurantData }) => {
   return (
-    <TouchableOpacity activeOpacity={1}>
+    <>
       {restaurantData.map((restaurant, index) => (
-        <View key={index} style={tw`p-2 bg-white mx-3 rounded-xl my-1 shadow`}>
-          <RestaurantImage image={restaurant.image_url} />
-          <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
-        </View>
+        <TouchableOpacity
+          activeOpacity={1}
+          key={index}
+          onPress={() =>
+            navigation.navigate("RestaurantDetail", {
+              name: restaurant.name,
+              image: restaurant.image_url,
+              price: restaurant.price,
+              reviews: restaurant.review_count,
+              rating: restaurant.rating,
+              categories: restaurant.categories,
+            })
+          }
+        >
+          <View style={tw`p-2 bg-white mx-3 rounded-2xl my-1 shadow`}>
+            <RestaurantImage image={restaurant.image_url} />
+            <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
+          </View>
+        </TouchableOpacity>
       ))}
-    </TouchableOpacity>
+    </>
   );
 };
 
