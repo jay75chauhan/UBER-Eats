@@ -52,7 +52,7 @@ const RestaurantItems = ({ navigation, restaurantData }) => {
             })
           }
         >
-          <View style={tw`p-2 bg-white mx-3 rounded-2xl my-1 shadow`}>
+          <View style={tw`p-2 bg-gray-50 mx-3 rounded-2xl my-2 shadow-xl`}>
             <RestaurantImage image={restaurant.image_url} />
             <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
           </View>
@@ -80,11 +80,11 @@ const RestaurantImage = ({ image }) => (
 const RestaurantInfo = ({ name, rating }) => (
   <View style={tw` flex-row items-center justify-between   p-2`}>
     <View style={tw``}>
-      <Text style={tw` font-bold text-xl`}>{name}</Text>
+      <Text style={tw` font-bold text-xl w-60`}>{name}</Text>
       <Text style={tw`text-base text-gray-500`}>30-40 . min</Text>
     </View>
     <Text
-      style={tw`font-bold p-2 px-3 m-2 text-base bg-gray-100 rounded-full `}
+      style={tw`font-bold p-2 w-10 text-center m-2 text-base bg-gray-100 rounded-full `}
     >
       {rating}
     </Text>

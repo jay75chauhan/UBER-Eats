@@ -6,7 +6,7 @@ import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 export default function BottomTabs() {
   return (
     <View
-      style={tw`flex-row p-2 px-3 shadow-2xl bg-white justify-between bg-white border border-gray-300  rounded-tr-3xl  rounded-tl-3xl`}
+      style={tw`flex-row p-2 px-3 shadow-xl bg-white justify-between bg-white   rounded-t-xl`}
     >
       <Icon icon="home" text="Home" />
       <Icon icon="search" text="Browse" />

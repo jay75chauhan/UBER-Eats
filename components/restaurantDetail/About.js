@@ -10,7 +10,7 @@ export default function About({ route }) {
   const description = `${formattedCategories}  🎟️ ~ ${price}💲 ~ ${rating}⭐ ~  👀 (${reviews} +)   `;
 
   return (
-    <View style={tw`bg-white shadow-md pb-3 mb-2 rounded-b-3xl`}>
+    <View style={tw`bg-gray-50 shadow-xl   pb-3 mb-2 rounded-b-2xl`}>
       <RestaurantImage image={image} />
       <RestaurantName name={name} />
       <RestaurantDescription description={description} />
@@ -25,13 +25,14 @@ const RestaurantImage = (props) => (
       style={{
         width: "100%",
         height: 180,
+        zIndex: 10,
       }}
     />
   </View>
 );
 
 const RestaurantName = (props) => (
-  <Text style={tw`text-3xl font-bold px-1 m-2`}> {props.name} </Text>
+  <Text style={tw`text-3xl  font-bold px-1 m-2`}> {props.name} </Text>
 );
 
 const RestaurantDescription = (props) => (
