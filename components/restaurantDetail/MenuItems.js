@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import tw from "tailwind-react-native-classnames";
+import { useDispatch } from "react-redux";
 
 const foods = [
   {
@@ -41,9 +42,49 @@ const foods = [
     image:
       "https://thestayathomechef.com/wp-content/uploads/2017/08/Most-Amazing-Lasagna-2-e1574792735811.jpg",
   },
+  {
+    title: "Lasagna",
+    description: "With butter lettuce, tomato and sauce bechamel",
+    price: "$13.50",
+    image:
+      "https://thestayathomechef.com/wp-content/uploads/2017/08/Most-Amazing-Lasagna-2-e1574792735811.jpg",
+  },
+  {
+    title: "Lasagna",
+    description: "With butter lettuce, tomato and sauce bechamel",
+    price: "$13.50",
+    image:
+      "https://thestayathomechef.com/wp-content/uploads/2017/08/Most-Amazing-Lasagna-2-e1574792735811.jpg",
+  },
+  {
+    title: "Lasagna",
+    description: "With butter lettuce, tomato and sauce bechamel",
+    price: "$13.50",
+    image:
+      "https://thestayathomechef.com/wp-content/uploads/2017/08/Most-Amazing-Lasagna-2-e1574792735811.jpg",
+  },
+  {
+    title: "Lasagna",
+    description: "With butter lettuce, tomato and sauce bechamel",
+    price: "$13.50",
+    image:
+      "https://thestayathomechef.com/wp-content/uploads/2017/08/Most-Amazing-Lasagna-2-e1574792735811.jpg",
+  },
 ];
 
-export default function MenuItems() {
+export default function MenuItems({ RestaurantName }) {
+  const dispatch = useDispatch();
+  const selectItem = (item, checkboxValue) => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        ...item,
+        restaurantName: RestaurantName,
+        checkboxValue: checkboxValue,
+      },
+    });
+  };
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {foods.map((food, index) => (
@@ -54,6 +95,7 @@ export default function MenuItems() {
           <BouncyCheckbox
             iconStyle={{ borderColor: "black" }}
             fillColor="black"
+            onPress={(checkboxValue) => selectItem(food, checkboxValue)}
           />
           <FodInfo food={food} />
           <FoodImage image={food.image} />

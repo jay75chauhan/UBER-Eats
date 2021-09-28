@@ -2,7 +2,9 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import tw from "tailwind-react-native-classnames";
 
-export default function ViewCard({ navigation, RestaurantName }) {
+export default function ViewCard() {
+  const items = useSelector();
+
   return (
     <View
       style={tw`absolute bg-black w-1/2 self-center shadow-2xl bottom-80 rounded-full   mb-5   z-50 `}

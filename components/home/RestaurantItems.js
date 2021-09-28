@@ -22,6 +22,7 @@ export const localRestaurants = [
     reviews: 1244,
     rating: 3.7,
   },
+
   {
     name: "India's Grill",
     image_url:
@@ -82,7 +83,6 @@ const RestaurantInfo = ({ name, rating }) => (
       <Text style={tw` font-bold text-xl`}>{name}</Text>
       <Text style={tw`text-base text-gray-500`}>30-40 . min</Text>
     </View>
-
     <Text
       style={tw`font-bold p-2 px-3 m-2 text-base bg-gray-100 rounded-full `}
     >

@@ -14,7 +14,8 @@ const RestaurantDetail = ({ route, navigation }) => {
         style={{ padding: 8, backgroundColor: "#fff", marginBottom: 10 }}
       /> */}
 
-      <MenuItems />
+      <MenuItems RestaurantName={route.params.name} />
+
       <ViewCard navigation={navigation} RestaurantName={route.params.name} />
     </View>
   );

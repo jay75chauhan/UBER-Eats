@@ -31,7 +31,7 @@ const RestaurantImage = (props) => (
 );
 
 const RestaurantName = (props) => (
-  <Text style={tw`text-3xl font-semibold px-1 m-2`}> {props.name} </Text>
+  <Text style={tw`text-3xl font-bold px-1 m-2`}> {props.name} </Text>
 );
 
 const RestaurantDescription = (props) => (

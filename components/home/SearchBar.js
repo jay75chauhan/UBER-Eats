@@ -7,7 +7,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 const SearchBar = ({ cityHandlear }) => {
   return (
-    <View style={tw`m-3 flex-row  `}>
+    <View style={tw`mx-3 my-2 flex-row  `}>
       <GooglePlacesAutocomplete
         onFail={(error) => console.error(error)}
         placeholder="Search"
